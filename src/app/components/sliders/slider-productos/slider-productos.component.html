@@ -1,0 +1,26 @@
+<swiper-container class="mySwiper" pagination="true" pagination-clickable="true" slides-per-view="4"
+space-between="30" centered-slides="true" [speed]="600">
+    
+
+    @for (producto of productos; track $index) {
+        
+        <swiper-slide>
+    
+            <div class="conenedor_novedades">
+                <!-- <div class="titulo_novedades">
+                    <h1>Novedades de este mes</h1>
+                </div> -->
+                <div class="contendor_libros">
+                    <div class="libro">
+                        <!-- <img src="../../../../../assets/imgs/img_slider_uno.png" alt=""> -->
+                    </div>
+                </div>
+            </div>
+            <img [src]="producto.ruta_portada" alt="">
+    
+        </swiper-slide>
+    }
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</swiper-container>

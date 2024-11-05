@@ -1,0 +1,40 @@
+.contenedor_login {
+    background-color: var(--secundario);
+    height: 100vh;
+
+    .row {
+        padding-top: 12%;
+        padding-left: 3rem;
+
+        .titulo {
+            font-size: 4.6rem;
+            font-family: 'Quicksand_Medium';
+            color: var(--textos);
+        }
+
+        .descripcion {
+            width: 38%;
+            color: var(--textos);
+            padding-top: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+
+        }
+
+        .btn_principal {
+            background-color: var(--principal);
+            border: none;
+            color: var(--textos);
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            /* font-size: 16px; */
+            margin: 36px 0px;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+    }
+
+
+}

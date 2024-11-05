@@ -1,0 +1,34 @@
+.contenedor_footer {
+    background-color: var(--secundario);
+    width: 100%;
+    margin: auto;
+    
+    .menu_footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        gap: 2rem;
+        list-style: none;
+        padding-top: 1rem;
+        padding-left: 0;
+
+        li {
+
+            a {
+                color: var(--textos);
+                text-decoration: none;
+                font-size: 1.2rem;
+            }
+
+        }
+
+    }
+    .copyrigth {
+        text-align: center;
+        padding-top: 1.4rem;
+        color: var(--textos);
+        font-size: 0.7rem;
+    }
+}

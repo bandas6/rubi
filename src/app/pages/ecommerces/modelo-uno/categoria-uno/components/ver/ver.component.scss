@@ -1,0 +1,24 @@
+.contenedor_Productos{
+    width: 100%;
+    margin: auto;
+    background: black;
+    padding: 3rem 0rem;
+
+    .titulo_producto {
+        text-align: center;
+        padding-top: 3rem;
+        color: var(--textos);
+        font-family: 'Quicksand_Bold';
+    }
+
+    .video{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--secundario);
+        video{
+            height: 38rem;
+        }
+    }
+}

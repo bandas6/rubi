@@ -1,0 +1,18 @@
+<app-modelo-general></app-modelo-general>
+<div class="container-fluid contenedor_login">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="titulo">Bienvenidos a RubiSpace</h1>
+            <p class="descripcion">Deceas crear tu sitio web de forma rapida.</p>
+            <p class="descripcion">Nada de codigo, solo a un click.</p>
+            <button class="btn btn_principal">Ver platillas</button>
+        </div>
+        <div class="col-md-4">
+            <div class="container">
+                <div *ngFor="let box of boxes" class="box" [ngStyle]="{'left.px': box.left, 'animation-delay': box.delay + 's'}"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+<div class="col-12 row contendor_header">
+    <div class="col-3 contenedor_titulo">
+        <h1><span>Rubi</span>Space</h1>
+    </div>
+    <div class="col-6 contenedor_opciones">
+        <ul class="opciones_menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <div class="col-3 contenedor_login_usuario">
+        <div class="idiomas">
+            <a href="#" class="idioma_español"><img src="/imagenes/espania.png" alt="Español"></a>
+            <a href="#" class="idioma_ingles"><img src="/imagenes/eeuu.png" alt="Ingles"></a>
+        </div>
+        <div class="usuario">
+            <fa-icon (click)="mostrarPover = !mostrarPover" [icon]="faUserCircle" ></fa-icon>
+        </div>
+        <div class="poverInicioSeccion" [ngClass]="mostrarPover?'cerrarInicioSeccion':'abrirInicioSeccion'">
+            <div class="contenedor_login">
+                <form>
+                    <h2>Login</h2>
+                    <input class="form-control mb-2" type="text" placeholder="Usuario o Correo" [autocomplete]="false">
+                    <input class="form-control" type="password" placeholder="Contraseña">
+                    <button class="w-100 btn_principal" type="submit">Login</button>
+                </form>
+            </div>
+            <div class="contenedor_registrar">
+                <p class="mb-0">No tienes una cuenta?</p>
+                <a href="#">Regístrate</a>
+        
+        </div>
+    </div>
+</div>
+<div class="contenedor_anuncios">
+    
+</div>

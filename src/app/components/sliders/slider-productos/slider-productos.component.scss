@@ -1,0 +1,122 @@
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+    min-height: 23rem;
+}
+
+swiper-container.mySwiper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(211px, 1fr);
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px;
+    height: auto;
+    margin-top: 1rem;
+    overflow-y: clip;
+}
+
+swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .conenedor_novedades {
+        width: 100%;
+        position: absolute;
+        display: flex;
+        left: 0%;
+        height: 20rem;
+        h1{
+            font-size: 4rem;
+            width: 23rem;
+            text-align: left;
+            color: white;
+            position: relative;
+            left: 14%;
+            top: 5rem;        
+        }
+    }
+}
+
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.4rem 0rem 1.4rem 0rem;
+}
+
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+.mySwiper {
+    position: relative;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff;
+    /* Color blanco para los botones */
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    border-radius: 50%;
+    /* Botones circulares */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fondo más oscuro al pasar el ratón */
+}
+
+.swiper-pagination-progressbar {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Barra de progreso semitransparente */
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background-color: #fff;
+    /* Color blanco para el relleno de la barra de progreso */
+}

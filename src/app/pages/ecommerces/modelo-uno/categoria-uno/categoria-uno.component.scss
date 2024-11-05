@@ -1,0 +1,71 @@
+.contenedor_Categoria_Productos{
+    width: 100%;
+    margin: auto;
+    background: black;
+    padding: 3rem 0rem;
+
+    .titulo_producto {
+        text-align: center;
+        padding-top: 3rem;
+        color: var(--textos);
+        font-family: 'Quicksand_Bold';
+    }
+
+    .video{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--secundario);
+        video{
+            height: 38rem;
+        }
+    }
+    .productos_grilla{
+      
+        display: grid;
+        grid-template-columns: repeat(3, minmax(auto, 1fr));
+        padding: 2rem;
+        background-color: var(--secundario);
+        width: 100%;
+        margin: auto;
+        
+        .card_producto {
+            width: 100%;
+            height: auto;
+
+            .imagen{
+                width: 100%;
+                height: max-content;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .titulo{
+                h3{
+                    text-align: center;
+                    font-size: 1.5rem;
+                    font-family: "Quicksand_Medium";
+                    color: var(--textos);
+                    border-bottom: 1px solid var(--textos);
+                    width: max-content;
+                    margin: auto;
+                    padding-bottom: 0.5rem;
+                }
+            }
+            .titulo:hover{
+                cursor: pointer;
+                transition: 0.4s;
+                border-radius: 1rem;
+                h3{
+                    color: var(--principal);
+                    border-bottom: 1px solid var(--principal);
+
+                }
+            }
+           
+        }   
+       
+    }
+}
