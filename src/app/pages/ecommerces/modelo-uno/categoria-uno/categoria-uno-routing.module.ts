@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriaUnoComponent } from './categoria-uno.component';
-import { VerComponent } from './components/ver/ver.component';
+import { VerProductoComponent } from './components/ver-producto/ver-producto.component';
+import { VerProductoCategoriaComponent } from './ver-producto-categoria/ver-producto-categoria.component';
 
 const routes: Routes = [
   {
-    path: 'ver',
-    component: VerComponent
+    path: 'ver-producto-categoria',
+    component: VerProductoCategoriaComponent
+  }, 
+  {
+    path: 'ver-producto',
+    component: VerProductoComponent
   },
   {
     path: '',

@@ -1,0 +1,166 @@
+.contenedor_modal {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+
+    .header {
+        width: 100%;
+        height: 3rem;
+        background: var(--principal);
+        display: flex;
+        border-radius: 0rem 2rem 0rem 1rem;
+
+        h3 {
+            width: 93%;
+            margin-left: 4.4%;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--textos);
+            font-family: 'Quicksand_Bold';
+            text-align: left !important;
+        }
+
+        fa-icon {
+            width: 7%;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--textos);
+        }
+    }
+
+    .body {
+        background-color: var(--modales);
+        padding: 2rem 2rem 2rem;
+        border-radius: 1rem 0rem 1rem 3rem;
+        max-height: 794px;
+        overflow: auto;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h3 {
+                width: 100%;
+                padding-bottom: 0;
+                margin-bottom: 0;
+                font-size: 1.3rem;
+                font-family: 'Quicksand_Bold';
+
+            }
+
+            .contacto {
+                row-gap: 1rem;
+                margin-bottom: 1rem;
+
+                .escoger_tipo_pagina {
+                    flex-direction: column;
+                    text-align: left;
+                    justify-content: start;
+                    align-items: self-start !important;
+
+                }
+
+                .color-picker-container {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                    justify-content: start;
+                    align-items: flex-start;
+                    /* height: 4rem; */
+                    row-gap: 1rem;
+
+                    .contenedor_colores {
+                        display: flex;
+                        flex-direction: row;
+                        width: 100%;
+
+                        .colorInput {
+                            width: 1.8rem;
+                            height: 1.8rem;
+                            margin-left: 0.76rem;
+                            padding: 0;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+
+            .ubicacion {
+                row-gap: 1rem;
+                margin-bottom: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                width: 97%;
+                background: #dfdfdf;
+                padding: 1.5rem 1rem 2.5rem;
+                border-radius: 0.6rem 2rem 0.6rem 2rem;
+
+                .contenedor_titulo_ubicacion {
+                    display: flex;
+
+                    h4 {
+                        width: 100%;
+                        padding-bottom: 0;
+                        margin-bottom: 0;
+                        font-size: 1.3rem;
+                        font-family: "Quicksand_Bold";
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                    }
+
+                    fa-icon {
+                        font-size: 1.4rem;
+                    }
+                }
+
+
+
+
+            }
+
+            .aniadirUbicacion {
+                display: flex;
+                flex-direction: row-reverse;
+                font-size: 1.1rem;
+                gap: 1rem;
+                justify-content: end;
+                align-items: center;
+                margin-right: 3rem;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+
+                p {
+                    margin-bottom: 0;
+                }
+
+                fa-icon {
+                    cursor: pointer;
+                    font-size: 1rem;
+                    background: var(--principal);
+                    color: var(--textos);
+                    padding: 0.3rem 0.6rem;
+                    border-radius: 1rem;
+                }
+            }
+
+            .acciones {
+                display: flex;
+                justify-content: right;
+                gap: 2rem;
+                padding: 0rem 1.4rem;
+            }
+        }
+    }
+}

@@ -17,6 +17,7 @@ interface Box {
 
 export class InicioComponent {
   
+
   boxes: Box[] = [];
 
   ngOnInit(): void {
@@ -24,6 +25,9 @@ export class InicioComponent {
     setInterval(() => this.createBox(), 500); // Crear un cuadro cada 500ms
   }
 
+  iniciarSession(){
+
+  }
 
   createBox(): void {
     const containerWidth = document.querySelector('.container')?.clientWidth || 0;
@@ -42,4 +46,6 @@ export class InicioComponent {
       this.boxes.shift();
     }, 4000);
   }
+
+
 }

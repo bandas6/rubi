@@ -1,22 +1,29 @@
-<swiper-container class="mySwiper" pagination="true" pagination-clickable="true" slides-per-view="4"
-space-between="30" centered-slides="true" [speed]="600">
+<swiper-container class="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
+slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
     
 
     @for (producto of productos; track $index) {
         
-        <swiper-slide>
+        <swiper-slide (click)="imagenSeleccionada(producto.ruta)">
     
-            <div class="conenedor_novedades">
-                <!-- <div class="titulo_novedades">
-                    <h1>Novedades de este mes</h1>
-                </div> -->
-                <div class="contendor_libros">
-                    <div class="libro">
-                        <!-- <img src="../../../../../assets/imgs/img_slider_uno.png" alt=""> -->
+            @if (acciones) {
+                <div class="conenedor_acciones" [routerLink]="'/pages/ecommerces/modelo-uno/categoria-uno/ver-producto'">
+                    <div class="acciones">
+                        <img src="imagenes/eye-solid.svg" alt="">
+                        <img src="imagenes/cart-shopping-solid.svg" alt="">
                     </div>
                 </div>
-            </div>
-            <img [src]="producto.ruta_portada" alt="">
+            }
+
+            @if (detalles) {
+                <div class="descripcion">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p class="precio">{{ producto.precio |  currency:'Cop'}}</p>
+                </div>
+            }
+            
+            <img class="imagenSlider" [src]="producto.ruta" alt="">
     
         </swiper-slide>
     }

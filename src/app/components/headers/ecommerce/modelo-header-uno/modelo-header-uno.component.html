@@ -33,7 +33,7 @@
                 </div>
                 <div class="contenedor_registrar">
                     <p class="mb-0">No tienes una cuenta?</p>
-                    <a href="#">Regístrate</a>
+                    <a (click)="abrirModalRegistro()">Regístrate</a>
 
                 </div>
             </div>
@@ -48,8 +48,11 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
-       
 
     </div>
 
     <div (click)="mostrarPover = true" *ngIf="!mostrarPover" class="cuadroCompletoCerrarLogin"></div>
+
+    @if (modalRegistro) {
+        <app-modal-general-uno></app-modal-general-uno>
+    }

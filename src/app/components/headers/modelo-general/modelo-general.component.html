@@ -15,24 +15,45 @@
             <a href="#" class="idioma_ingles"><img src="/imagenes/eeuu.png" alt="Ingles"></a>
         </div>
         <div class="usuario">
-            <fa-icon (click)="mostrarPover = !mostrarPover" [icon]="faUserCircle" ></fa-icon>
+            @if (!usuarioAuth) {
+                <fa-icon (click)="mostrarPover = !mostrarPover" [icon]="faUserCircle"></fa-icon>
+            }@else {
+                <img  (click)="mostrarPover = !mostrarPover" src="imagenes/admin_persona.jpg" alt="">
+            }
         </div>
         <div class="poverInicioSeccion" [ngClass]="mostrarPover?'cerrarInicioSeccion':'abrirInicioSeccion'">
-            <div class="contenedor_login">
-                <form>
-                    <h2>Login</h2>
-                    <input class="form-control mb-2" type="text" placeholder="Usuario o Correo" [autocomplete]="false">
-                    <input class="form-control" type="password" placeholder="Contraseña">
-                    <button class="w-100 btn_principal" type="submit">Login</button>
-                </form>
-            </div>
-            <div class="contenedor_registrar">
-                <p class="mb-0">No tienes una cuenta?</p>
-                <a href="#">Regístrate</a>
-        
+            @if (!usuarioAuth) {
+                <div class="contenedor_login">
+
+                    <form [formGroup]="formLogin">
+                        <h2>Login</h2>
+                        <input formControlName="nombreUsuario" class="form-control mb-2" type="text"
+                            placeholder="Usuario o Correo" [autocomplete]="false">
+                        <input formControlName="password" class="form-control" type="password" placeholder="Contraseña">
+                        <button (click)="iniciarSession()" class="w-100 btn_principal" type="submit">Login</button>
+                    </form>
+
+                </div>
+                <div class="contenedor_registrar">
+                    <p class="mb-0">No tienes una cuenta?</p>
+                    <a (click)="abrirModalRegistro()">Regístrate</a>
+                </div>
+            }@else {
+                <div class="contenedor_usuario">
+                    <p class="nombreUsuario">{{usuarioAuth.nombreUsuario}}</p>
+                    <p class="tipo">{{rolEncontrado.etiqueta}}</p>
+                    <!--
+                        <p class="nombreCompleto">{{usuarioAuth.nombres}} {{usuarioAuth.apellidos}}</p>
+                    -->
+                    <p class="cerrarSession" (click)="cerrarSession()">Cerrar Sesión</p>
+                </div>
+            }
         </div>
     </div>
-</div>
-<div class="contenedor_anuncios">
-    
-</div>
+    <div class="contenedor_anuncios">
+
+    </div>
+
+    @if (modalRegistro) {
+    <app-modal-general-uno (cerrar)="cerrarModal($event)"></app-modal-general-uno>
+    }

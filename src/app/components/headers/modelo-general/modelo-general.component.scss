@@ -39,6 +39,7 @@
                 color: var(--principal);
 
             }
+
             font-family: 'Quicksand_Medium';
             font-size: 3.2rem;
             color: var(--textos);
@@ -63,22 +64,24 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                img{
+
+                img {
                     height: 2rem;
                 }
             }
         }
-        
+
         .poverInicioSeccion {
             position: absolute;
             width: 15rem;
-            top: 4.5rem;
-            right: 6%;
+            top: 5.5rem;
+            right: 4%;
             background-color: var(--textos);
             border-radius: 0.5rem;
             padding: 0.9rem;
             z-index: 999999;
-            &::after{
+
+            &::after {
                 content: "";
                 position: absolute;
                 top: -1%;
@@ -90,28 +93,67 @@
                 transition: transform 0.5s ease;
                 transform: rotate(45deg);
                 border-radius: 0.2rem;
-            
+
             }
-            .contenedor_login{
-                form{
-                    h2{
+
+            .contenedor_login {
+                form {
+                    h2 {
                         text-align: center;
                     }
-                    input{
+
+                    input {
                         text-align: center;
                     }
                 }
             }
-            .contenedor_registrar{
+
+            .contenedor_registrar {
                 text-align: center;
+
+                p,
+                a {
+                    cursor: pointer;
+                }
+            }
+
+            .contenedor_usuario {
+                p {
+                    text-align: center;
+                    color: var(--textos_secundarios);
+                    cursor: pointer;
+                    transition: color 0.5s ease;
+                    margin-bottom: 0;
+                }
+
+                .nombreUsuario {
+                    font-size: 1.6rem;
+                }
+
+                .tipo{
+                    font-size: 0.7rem;
+                    padding-bottom: 1rem;
+                    color: var(--principal);
+                }
+
+                .nombreCompleto {
+                    font-size: 1rem;
+                    padding-bottom: 0.6rem;
+                }
+
+                .cerrarSession {
+                    background-color: var(--principal);
+                    color: var(--textos) !important;
+                    border-radius: 0rem 1rem 1rem;
+                }
             }
         }
 
-        .cerrarInicioSeccion{
+        .cerrarInicioSeccion {
             display: none;
         }
 
-        .abrirInicioSeccion{
+        .abrirInicioSeccion {
             display: initial;
         }
 
@@ -123,6 +165,13 @@
                 font-size: 3rem;
                 text-align: center;
                 color: var(--textos);
+            }
+
+            img {
+                width: 3.4rem;
+                height: 3.4rem;
+                border-radius: 50%;
+                object-fit: cover;
             }
         }
     }

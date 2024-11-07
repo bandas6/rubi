@@ -16,8 +16,9 @@ export class AuthService {
     return this.http.post(`${this.URL_API}/auth`,body);
   } 
 
-  guardarUsuario(usuario: string) {
-    localStorage.setItem('usuario', usuario);
+  guardarUsuario(usuario: any) {
+    console.log(usuario)
+    localStorage.setItem('usuario',  JSON.stringify(usuario));
   }
 
   obtenerUsuario() {

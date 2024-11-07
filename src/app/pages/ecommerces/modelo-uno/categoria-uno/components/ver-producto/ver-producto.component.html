@@ -1,0 +1,49 @@
+<div class="contenedor_producto row">
+    
+    <div class="col-7">
+        <div class="imagen_slider">
+            <img [src]="imagen || '/imagenes/presentacionEcommerceEjemplo.jpg'" alt="">
+        </div>
+        <div class="contenedor_slider col-12">
+            <app-slider-producto [detalles]="false" [acciones]="false"
+                (imagen)="imagenSeleccionada($event)"></app-slider-producto>
+        </div>
+    </div>
+   
+    <div class="col-5 descripcion_producto">
+        <div class="navegacion">
+            <p>/nav/pagina/ejemplo-js</p>
+        </div>
+        <h2>{{ producto?.categoria }}</h2>
+        <h3>{{ producto?.nombre }}</h3>
+        <p class="tamanio">{{ producto?.tamanio }}</p>
+        <p class="tamanio">{{ producto?.diametro }}</p>
+        <div class="precio_producto">
+            <span>Precio: </span>
+            <span>{{ producto?.precio | currency }}</span>
+        </div>
+        <p>{{ producto?.descripcion }}</p>
+        <div class="row col-12">
+            <div class="col-3">
+                <div class="contenedo_input">
+                    <input #cantidad class="form-control" type="number">
+                </div>
+            </div>
+            <div class="boton_comprar col-6">
+                <button class="btn_principal" (click)="comprarProducto()">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 descripcion_categorias">
+        <!--
+        <h3>Categorías relacionadas:</h3>
+        <ul>
+                <li *ngFor="let categoria of categoriasRelacionadas">
+                    <a [routerLink]="['/ecommerces/modelo-uno/categorias', categoria.id]">{{ categoria.nombre }}</a>
+                </li>
+            </ul>
+        -->
+    </div>
+</div>
+

@@ -5,6 +5,8 @@
     --principal: #22CC55;
     --principal_claro: #6ec989;
     --secundario: #000000;
+    --color_gris: #a9a9a9;
+    --modales: #ffffff;
     --textos: #ffffff;
     --textos_secundarios: #000000;
 }
@@ -31,11 +33,14 @@
     font-style: normal;
 }
 
-
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
-html, body{
+/* Import ng-select styles. */
+@import "@ng-select/ng-select/themes/default.theme.css";
+
+html,
+body {
     font-family: 'Quicksand_Regular' !important;
 }
 
@@ -53,6 +58,49 @@ html, body{
     font-size: 1rem;
     border-radius: 0.3rem;
 }
+
+.btn_secundario {
+    background-color: var(--color_gris);
+    border: none;
+    color: var(--textos);
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0px;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+}
+
+// modal
+app-modal-general-uno {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    background: rgb(0 0 0 / 90%);
+}
+
+// estilos ngSelect 
+
+ng-select {
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid var(--modales);
+    
+    .ng-select-container {
+        border-radius: 8px; // Aplica bordes redondeados al contenedor interno
+        height: 100%; // Ajusta la altura
+    }
+
+    .ng-clear-wrapper,
+    .ng-arrow-wrapper {
+        margin-right: 8px; // Espaciado a la derecha de los íconos de borrar y desplegar
+    }
+}
+
 
 // keyFrame cuadro
 .container {
@@ -83,6 +131,7 @@ html, body{
         transform: translateY(0);
         opacity: 1;
     }
+
     100% {
         transform: translateY(-100vh);
         opacity: 0;

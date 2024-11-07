@@ -16,7 +16,7 @@ export class CategoriaUnoComponent implements OnInit {
   }
 
   verProducto(){
-    this.router.navigate(['pages/ecommerces/modelo-uno/categoria-uno/ver']);
+    this.router.navigate(['pages/ecommerces/modelo-uno/categoria-uno/ver-producto-categoria']);
   }
 
 }

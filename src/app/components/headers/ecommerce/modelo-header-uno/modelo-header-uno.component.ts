@@ -12,6 +12,7 @@ export class ModeloHeaderUnoComponent implements OnInit {
   faUserCircle = faUserCircle; // Importando el icono de usuario de Font Awesome
 
   mostrarPover:boolean = true;
+  modalRegistro:boolean = false;
   
   titulo:string = "";
 
@@ -26,10 +27,12 @@ export class ModeloHeaderUnoComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
     this.titulo = this.dataSelectContructor.titulo;
-
   }
 
+  abrirModalRegistro(){
+    this.modalRegistro = true
+    console.log(this.modalRegistro)
+  }
 
 }

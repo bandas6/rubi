@@ -1,0 +1,130 @@
+<div class="contenedor_modal">
+    <div class="header">
+        <h3>{{tituloHeader}}</h3>
+        <fa-icon [icon]="faClose" (click)="cerrarModal()"></fa-icon>
+    </div>
+    <div class="body">
+        <form [formGroup]="formularioRegistro" (ngSubmit)="registrarUsuario()">
+
+            <div class="col-12 row justify-content-center">
+
+                <div class="contacto col-12 row">
+                    <h3>{{tituloBody}}</h3>
+
+                    <div class="col-6">
+                        <input class="form-control" type="text" formControlName="nombres" placeholder="Nombre">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" formControlName="apellidos" placeholder="Apellido">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="text" formControlName="nombreUsuario"
+                            placeholder="Nombre usuario">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="email" formControlName="correo" placeholder="Correo">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="password" formControlName="password" placeholder="Contraseña">
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" type="password" formControlName="confirmarContrasenia"
+                            placeholder="Confirmar Contraseña">
+                    </div>
+
+                    <h3>{{preguntaTipoDeUsuario}}</h3>
+
+                    <div class="col-12 d-flex align-items-center">
+                        <div class="form-check me-2">
+                            <input class="form-check-input" formControlName="confirmado" type="radio" name="confirmado"
+                                id="siConfirmado" value="true">
+                            <label class="form-check-label" for="siConfirmado">Sí</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" formControlName="confirmado" type="radio" name="confirmado"
+                                id="noConfirmado" value="false">
+                            <label class="form-check-label" for="noConfirmado">No</label>
+                        </div>
+                    </div>
+
+
+                    @if (formularioRegistro.get('confirmado')?.value === 'true') {
+
+                        <div class="col-6 d-flex escoger_tipo_pagina">
+                            <label class="form-label">{{preguntaTipoPagina}}</label>
+                            <ng-select [placeholder]="afirmacionTipoUsuarioPlaceHolder" [items]="listaDePaginas"
+                                bindLabel="etiqueta" bindValue="id" formControlName="tipoPagina">
+                            </ng-select>
+
+                        </div>
+
+                        <div class="color-picker-container col-6">
+                            <label for="form-label">{{preguntaColoresPagina}}</label>
+                            <div class="col-12 row contenedor_colores">
+                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorUno" />
+                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorDos"  />
+                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorTres"  />
+                            </div>
+                        </div>
+
+                    } @else {
+
+                    }
+
+
+
+                </div>
+
+                @if (direcciones) {
+
+                    <div class="aniadirUbicacion">
+                        <p>Agregar {{subtitulo}}</p>
+                        <fa-icon (click)="guardarDireccion()" [icon]="faAdd"></fa-icon>
+                    </div>
+                    <div formArrayName="direcciones">
+                        <div class="ubicacion col-12 row"
+                            *ngFor="let direccion of listadoDirecciones.controls; let indexDireccion = index"
+                            [formGroupName]="indexDireccion">
+                            <div class="contenedor_titulo_ubicacion">
+                                <h4>{{subtitulo}} {{indexDireccion + 1}}</h4>
+                                <fa-icon [icon]="faTrash" (click)="eliminarDireccion(indexDireccion)"></fa-icon>
+                            </div>
+
+                            <div class="col-6">
+                                <input class="form-control" type="text" formControlName="calle" placeholder="Dirección">
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" formControlName="ciudad" placeholder="Ciudad">
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" formControlName="estado" placeholder="Estado">
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" formControlName="codigoPostal"
+                                    placeholder="Codigo postal">
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" formControlName="pais" placeholder="Pais">
+                            </div>
+
+                        </div>
+                    </div>
+
+                }
+
+                <div class="acciones">
+                    <button class="btn_secundario" type="reset" (click)="formularioRegistro.reset()">Limpiar</button>
+                    <button class="btn_principal" type="submit">Enviar</button>
+                </div>
+
+                <!-- 
+                    -->
+
+                <pre>
+                    {{formularioRegistro.value | json}}
+                </pre>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -24,7 +24,7 @@ export class AppComponent {
       numeroBody: 1
     },
     titulo: "Shopping",
-    colorPrincipal: '#ffda70',
+    colorPrincipal: '#896500',
     textoColor: '#ffffff',
     secundariosColor: '#000000',
     textosSecundariosColor: '#000000'

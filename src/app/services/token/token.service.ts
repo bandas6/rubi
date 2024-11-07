@@ -10,7 +10,7 @@ export class TokenService {
   }
 
   guardarToken(token: string) {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
   obtenerToken() {
