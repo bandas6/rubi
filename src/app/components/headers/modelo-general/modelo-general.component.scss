@@ -141,6 +141,13 @@
                     padding-bottom: 0.6rem;
                 }
 
+                .editarUsuario {
+                    background-color: var(--principal);
+                    color: var(--textos) !important;
+                    border-radius: 0rem 1rem 1rem;
+                    margin-bottom: 0.5rem;
+                }
+
                 .cerrarSession {
                     background-color: var(--principal);
                     color: var(--textos) !important;

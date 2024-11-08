@@ -8,6 +8,7 @@
 
             <div class="col-12 row justify-content-center">
 
+
                 <div class="contacto col-12 row">
                     <h3>{{tituloBody}}</h3>
 
@@ -32,50 +33,7 @@
                             placeholder="Confirmar Contraseña">
                     </div>
 
-                    <h3>{{preguntaTipoDeUsuario}}</h3>
-
-                    <div class="col-12 d-flex align-items-center">
-                        <div class="form-check me-2">
-                            <input class="form-check-input" formControlName="confirmado" type="radio" name="confirmado"
-                                id="siConfirmado" value="true">
-                            <label class="form-check-label" for="siConfirmado">Sí</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" formControlName="confirmado" type="radio" name="confirmado"
-                                id="noConfirmado" value="false">
-                            <label class="form-check-label" for="noConfirmado">No</label>
-                        </div>
-                    </div>
-
-
-                    @if (formularioRegistro.get('confirmado')?.value === 'true') {
-
-                        <div class="col-6 d-flex escoger_tipo_pagina">
-                            <label class="form-label">{{preguntaTipoPagina}}</label>
-                            <ng-select [placeholder]="afirmacionTipoUsuarioPlaceHolder" [items]="listaDePaginas"
-                                bindLabel="etiqueta" bindValue="id" formControlName="tipoPagina">
-                            </ng-select>
-
-                        </div>
-
-                        <div class="color-picker-container col-6">
-                            <label for="form-label">{{preguntaColoresPagina}}</label>
-                            <div class="col-12 row contenedor_colores">
-                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorUno" />
-                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorDos"  />
-                                <input (change)="cambioDeColores()" class="colorInput" type="color" id="colorInput" formControlName="colorTres"  />
-                            </div>
-                        </div>
-
-                    } @else {
-
-                    }
-
-
-
-                </div>
-
-                @if (direcciones) {
+                    @if (direcciones || formularioRegistro.get('confirmarDatosUbicacion')?.value === 'true') {
 
                     <div class="aniadirUbicacion">
                         <p>Agregar {{subtitulo}}</p>
@@ -106,23 +64,161 @@
                             <div class="col-6">
                                 <input class="form-control" type="text" formControlName="pais" placeholder="Pais">
                             </div>
-
                         </div>
                     </div>
 
-                }
+                    }
+
+                    <h3>{{preguntaTipoDeUsuario}}</h3>
+
+                    <div class="col-12 d-flex align-items-center">
+                        <div class="form-check me-2">
+                            <input class="form-check-input" formControlName="confirmarCliente" type="radio"
+                                name="confirmarCliente" id="siConfirmado" value="true">
+                            <label class="form-check-label" for="siConfirmado">Sí</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" formControlName="confirmarCliente" type="radio"
+                                name="confirmarCliente" id="noConfirmado" value="false">
+                            <label class="form-check-label" for="noConfirmado">No</label>
+                        </div>
+                    </div>
+
+
+                    @if (formularioRegistro.get('confirmarCliente')?.value === 'true') {
+
+                    <div class="col-6 d-flex escribe_nombre_pagina">
+                        <label class="form-label">{{preguntaNombrePagina}}</label>
+                        <input class="form-control" type="text" formControlName="nombrePagina"
+                            placeholder="Nombre de la pagina">
+                    </div>
+
+                    <div class="col-6 d-flex escoger_tipo_pagina">
+                        <label class="form-label">{{preguntaTipoPagina}}</label>
+                        <ng-select [placeholder]="afirmacionTipoUsuarioPlaceHolder" [items]="tipoPaginas"
+                            bindLabel="tipo" bindValue="uid" formControlName="tipoPagina">
+                        </ng-select>
+                    </div>
+
+                    <div class="color-picker-container col-6">
+                        <label for="form-label">{{preguntaColoresPagina}}</label>
+                        <div class="col-12 row contenedor_colores">
+                            <button type="button" class="contenedorInputs" popoverClass="coloresInputs"
+                                ngbPopover="Color principal" [openDelay]="300"
+                                [closeDelay]="500" triggers="mouseenter:mouseleave">
+                                <input (change)="cambioDeColores()" class="colorInputUno" type="color"
+                                    formControlName="colorUno" />
+                            </button>
+
+                            <button type="button" class="contenedorInputs" popoverClass="coloresInputs"
+                                ngbPopover="Color secundario" [openDelay]="300"
+                                [closeDelay]="500" triggers="mouseenter:mouseleave">
+                                <input (change)="cambioDeColores()" class="colorInputDos" type="color"
+                                    formControlName="colorDos" />
+                            </button>
+                            <button type="button" class="contenedorInputs" popoverClass="coloresInputs"
+                                ngbPopover="Color primario textos" [openDelay]="300"
+                                [closeDelay]="500" triggers="mouseenter:mouseleave">
+                                <input (change)="cambioDeColores()" class="colorInputTres" type="color"
+                                    formControlName="colorTres" />
+                            </button>
+                            <button type="button" class="contenedorInputs" popoverClass="coloresInputs"
+                                ngbPopover="Color secundario textos" [openDelay]="300"
+                                [closeDelay]="500" triggers="mouseenter:mouseleave">
+                                <input (change)="cambioDeColores()" class="colorInputCuatro" type="color"
+                                    formControlName="colorCuatro" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="pb-0 mb-0">{{descipcionCabeceraVisorDeColores}}</p>
+
+                    <div class="col-12 row contendor_header">
+
+                        <div class="col-12 contenedor_titulo">
+                            <div class="col-3 h-100"></div>
+                            <div class="titulo col-6">
+                                <h1><span>Titulo de prueba</span></h1>
+                            </div>
+                            <div class="col-3 contenedor_login_usuario">
+                                <div class="idiomas">
+                                    <a class="idioma_español"><img src="/imagenes/espania.png" alt="Español"></a>
+                                    <a class="idioma_ingles"><img src="/imagenes/eeuu.png" alt="Ingles"></a>
+                                </div>
+                                <div class="usuario">
+                                    <fa-icon [icon]="faUserCircle"></fa-icon>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-12">
+                            <div class="col-6 contenedor_opciones">
+                                <ul class="opciones_menu">
+                                    <li><a>Home</a></li>
+                                    <li><a>About</a></li>
+                                    <li><a>Contact</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    } @else if(formularioRegistro.get('confirmarCliente')?.value === 'false'){
+
+                    <h3>{{preguntaEresDesarollador}}</h3>
+
+                    <div class="col-12 d-flex align-items-center">
+                        <div class="form-check me-2">
+                            <input class="form-check-input" formControlName="confirmarDesarrollador" type="radio"
+                                name="confirmarDesarrollador" id="siConfirmadoDesarollador" value="true">
+                            <label class="form-check-label" for="siConfirmadoDesarollador">Sí</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" formControlName="confirmarDesarrollador" type="radio"
+                                name="confirmarDesarrollador" id="noConfirmadoDesarollador" value="false">
+                            <label class="form-check-label" for="noConfirmadoDesarollador">No</label>
+                        </div>
+                    </div>
+
+                    @if(formularioRegistro.get('confirmarDesarrollador')?.value === 'true'){
+                    <div class="cuadroEsDesarrollador">
+                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                        <p>{{seleccionasteEresDesarrollador}}</p>
+                    </div>
+                    }@else if(formularioRegistro.get('confirmarDesarrollador')?.value === 'false'){
+                    <div class="cuadroEsDesarrollador">
+                        <fa-icon [icon]="faExclamationCircle"></fa-icon>
+                        <p>{{seleccionasteNoEresDesarrollador}}</p>
+                    </div>
+                    }
+
+                    }
+
+
+                </div>
+
 
                 <div class="acciones">
-                    <button class="btn_secundario" type="reset" (click)="formularioRegistro.reset()">Limpiar</button>
-                    <button class="btn_principal" type="submit">Enviar</button>
+                    <button class="btn_secundario" type="reset" (click)="formularioRegistro.reset()">
+                        Limpiar
+                    </button>
+                    <button class="btn_principal" type="submit">
+                        @if(!modoEdicion){
+                            Guardar
+                        }@else {
+                            Editar
+                        }
+                    </button>
                 </div>
 
                 <!-- 
-                    -->
-
+                    
                 <pre>
                     {{formularioRegistro.value | json}}
                 </pre>
+                -->
             </div>
 
         </form>

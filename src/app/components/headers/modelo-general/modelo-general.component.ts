@@ -26,6 +26,7 @@ export class ModeloGeneralComponent implements OnInit {
 
   mostrarPover: boolean = true;
   modalRegistro: boolean = false;
+  modoEdicion: boolean = false;
 
   usuarioAuth!: Authentication;
   rolesDeUsuarios: any[] = [];
@@ -52,16 +53,13 @@ export class ModeloGeneralComponent implements OnInit {
   obtenerUsuarioLogueado() {
     const usuarioAuth: any = this.authService.obtenerUsuario();
     this.usuarioAuth = JSON.parse(usuarioAuth);
-    console.log(this.usuarioAuth);
   }
 
   obtenerListasMaestras() {
-    this.listasMaestrasService.obtenerListasMaestras().subscribe(res => {
+    this.listasMaestrasService.obtenerListasMaestrasRoles().subscribe(res => {
       this.rolesDeUsuarios = res;
-
       const rolFiltrado = this.filtroGeneral('rol', this.rolesDeUsuarios);
       this.rolEncontrado = rolFiltrado;
-
     })
   }
 
@@ -70,7 +68,6 @@ export class ModeloGeneralComponent implements OnInit {
       case 'rol':
           return array.find(r => r.rol === this.usuarioAuth.rol);
         break;
-
       default:
         break;
     }
@@ -79,6 +76,7 @@ export class ModeloGeneralComponent implements OnInit {
   iniciarSession() {
     this.authService.login(this.formLogin.value).subscribe({
       next: (respuesta: any) => {
+
         this.authService.guardarUsuario(respuesta.data.usuario);
         this.tokenService.guardarToken(respuesta.data.token);
 
@@ -86,6 +84,7 @@ export class ModeloGeneralComponent implements OnInit {
         this.otrosLocalService.storageSubject.next({ recargar: true });
         this.mostrarPover = false;
         this.obtenerUsuarioLogueado();
+        this.obtenerListasMaestras();
       },
       error: (error: any) => {
         console.error('Error al iniciar sesión:', error);
@@ -94,7 +93,13 @@ export class ModeloGeneralComponent implements OnInit {
     })
   }
 
+  editarUsuario(){
+    this.modalRegistro = true;
+    this.modoEdicion = true;
+  }
+
   cerrarSession() {
+    this.otrosLocalService.storageSubject.next({ sesionCerrada: true });
     this.authService.eliminarUsuario();
     this.tokenService.eliminarToken();
     this.obtenerUsuarioLogueado();
@@ -102,6 +107,7 @@ export class ModeloGeneralComponent implements OnInit {
 
   abrirModalRegistro() {
     this.modalRegistro = true
+    this.modoEdicion = false;
   }
 
   cerrarModal(cerrar: any) {

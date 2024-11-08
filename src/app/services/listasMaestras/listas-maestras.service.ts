@@ -37,11 +37,18 @@ export class ListasMaestrasService {
     }
   }
 
-  obtenerListasMaestras() {
-    return this.http.get(`${this.URL_API}/listas-maestras`).pipe(
+  obtenerListasMaestrasRoles() {
+    this.setearCabecera();
+    return this.http.get(`${this.URL_API}/listas-maestras/roles`, this.httpOptions).pipe(
       map((res: any) => res.data.rol)
     );
+  }
 
+  obtenerListasMaestrasPaginas() {
+    this.setearCabecera();
+    return this.http.get(`${this.URL_API}/listas-maestras/paginas`, this.httpOptions).pipe(
+      map((res: any) => res.data.paginas)
+    );
   }
 
 

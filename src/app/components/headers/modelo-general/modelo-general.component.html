@@ -45,6 +45,7 @@
                     <!--
                         <p class="nombreCompleto">{{usuarioAuth.nombres}} {{usuarioAuth.apellidos}}</p>
                     -->
+                    <p class="editarUsuario" (click)="editarUsuario()">Editar usuario</p>
                     <p class="cerrarSession" (click)="cerrarSession()">Cerrar Sesión</p>
                 </div>
             }
@@ -55,5 +56,5 @@
     </div>
 
     @if (modalRegistro) {
-    <app-modal-general-uno (cerrar)="cerrarModal($event)"></app-modal-general-uno>
+    <app-modal-general-uno [modoEdicion]="modoEdicion" (cerrar)="cerrarModal($event)"></app-modal-general-uno>
     }

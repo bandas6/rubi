@@ -42,8 +42,7 @@ export class UsuariosService {
   }
 
   actualizarUsuario(body: any, id: string) {
-    this.setearCabecera();
-    return this.http.patch(`${this.URL_API}/usuarios/${id}`, body, this.httpOptions)
+    return this.http.put(`${this.URL_API}/usuarios/${id}`, body, this.httpOptions)
   }
 
   obtenerUsuarios(parametros?: any) {

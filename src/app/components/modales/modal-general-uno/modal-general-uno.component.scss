@@ -63,12 +63,11 @@
                 row-gap: 1rem;
                 margin-bottom: 1rem;
 
-                .escoger_tipo_pagina {
+                .escoger_tipo_pagina, .escribe_nombre_pagina {
                     flex-direction: column;
                     text-align: left;
                     justify-content: start;
                     align-items: self-start !important;
-
                 }
 
                 .color-picker-container {
@@ -84,14 +83,51 @@
                         display: flex;
                         flex-direction: row;
                         width: 100%;
-
-                        .colorInput {
+                        .contenedorInputs {
                             width: 1.8rem;
                             height: 1.8rem;
                             margin-left: 0.76rem;
                             padding: 0;
                             border-radius: 50%;
                         }
+                        .coloresInputs{
+                            background: aliceblue;
+			                font-size: 125%;
+                            text-align: center;
+                            width: max-content;
+                            .arrow::after {
+                                border-top-color: aliceblue;
+                            }
+                        }
+                        .colorInputUno, .colorInputDos, .colorInputTres, .colorInputCuatro {
+                            width: 100%;
+                            height: 100%;
+                            padding: 0;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border: 0px;
+                        }
+                       
+                    }
+                }
+
+                .cuadroEsDesarrollador {
+                    display: flex;
+                    width: 59.1%;
+                    background-color: var(--alertas);
+                    color: var(--textos);
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 1rem;
+                    border-radius: 2rem 2rem 0rem 0rem;
+                    margin-left: 0.7rem;
+                    position: fixed;
+                    bottom: 0%;
+                    left: 19.76%;
+                    fa-icon{
+                        font-size: 3rem;
                     }
                 }
             }
@@ -161,6 +197,164 @@
                 gap: 2rem;
                 padding: 0rem 1.4rem;
             }
+        }
+
+        .contendor_header {
+            height: auto;
+            margin: auto;
+            background-color: var(--secundario);
+            border-bottom: 16px solid var(--principal);
+            border-radius: 1rem;
+
+            .contenedor_opciones {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                width: 100%;
+
+                .opciones_menu {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 31%;
+                    padding: 0px 0px 0px 2.3%;
+                    margin: 0;
+
+                    li {
+                        list-style: none;
+                        margin-right: 20px;
+
+                        a {
+                            color: var(--textos);
+                            text-decoration: none;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .contenedor_titulo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                margin-top: 1rem;
+
+                .contenedor_login_usuario {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .idiomas {
+                        display: flex;
+                        width: 50%;
+                        border-right: 1px solid var(--textos);
+                        height: 3rem;
+                        justify-content: end;
+                        gap: 1rem;
+                        padding-right: 22px;
+                        align-items: center;
+
+                        a {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            img {
+                                height: 2rem;
+                            }
+                        }
+                    }
+
+                    .poverInicioSeccion {
+                        position: absolute;
+                        width: 15rem;
+                        top: 8rem;
+                        right: 19%;
+                        background-color: var(--textos);
+                        border-radius: 0.5rem;
+                        padding: 0.9rem;
+                        z-index: 999999;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: -1%;
+                            left: 93%;
+                            width: 5%;
+                            height: 7%;
+                            background-color: var(--textos);
+                            z-index: 1;
+                            transition: transform 0.5s ease;
+                            transform: rotate(45deg);
+                            border-radius: 0.2rem;
+
+                        }
+
+                        .contenedor_registrar {
+                            p {
+                                color: var(--textos_secundarios);
+                            }
+                        }
+
+                        .contenedor_login {
+                            form {
+                                h2 {
+                                    text-align: center;
+                                    color: var(--textos_secundarios);
+                                }
+
+                                input {
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+                        .contenedor_registrar {
+                            text-align: center;
+                        }
+                    }
+
+                    .cerrarInicioSeccion {
+                        display: none;
+                    }
+
+                    .abrirInicioSeccion {
+                        display: initial;
+                    }
+
+                    .usuario {
+                        width: 36%;
+                        text-align: center;
+
+                        fa-icon {
+                            font-size: 2rem;
+                            text-align: center;
+                            color: var(--textos);
+                        }
+                    }
+                }
+
+                .titulo {
+
+                    h1 {
+                        span {
+                            color: var(--principal);
+                        }
+
+                        text-align: end;
+                        font-family: "Quicksand_Medium";
+                        font-size: 2.1rem;
+                        color: var(--textos);
+                        padding-right: 2%;
+                        text-align: center;
+                    }
+                }
+            }
+
+
+
         }
     }
 }
